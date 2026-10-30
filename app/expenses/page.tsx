@@ -43,11 +43,24 @@ export default function ExpensesPage() {
   }
 
   return (
-    <div data-testid="expenses-page" className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">My Expenses</h1>
+    <div data-testid="expenses-page" className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+      {/* Page Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-50 border border-indigo-100/80 text-indigo-700 text-xs font-semibold uppercase tracking-wider mb-2">
+            Dashboard
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+            My Expenses
+          </h1>
+          <p className="text-sm text-slate-500 mt-1">
+            Manage, filter, and track all your personal expenses
+          </p>
+        </div>
+      </div>
 
-      {/* Filters */}
-      <div className="mb-6">
+      {/* Filter Toolbar */}
+      <div className="mb-8">
         <Filters
           category={filterCategory}
           month={filterMonth}
@@ -58,22 +71,42 @@ export default function ExpensesPage() {
       </div>
 
       {/* Layout responsive: mobile = 1 cột, 1280px = 3 cột (form+summary | list) */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
         {/* Cột trái: Form + Summary */}
         <div className="lg:col-span-1 space-y-6">
-          {/* Add Expense Form */}
-          <div className="bg-white border border-gray-200 rounded-lg p-4">
-            <h2 className="text-base font-semibold text-gray-800 mb-4">Add Expense</h2>
+          {/* Add Expense Form Card */}
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-xs">
+            <div className="flex items-center gap-2 pb-4 mb-4 border-b border-slate-100">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M12 4v16m8-8H4" />
+                </svg>
+              </span>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-slate-800">
+                Add Expense
+              </h2>
+            </div>
             <ExpenseForm />
           </div>
 
-          {/* Summary của filtered list */}
+          {/* Summary Card */}
           <Summary items={filtered} />
         </div>
 
         {/* Cột phải: Expense List */}
-        <div className="lg:col-span-2">
-          <h2 className="text-base font-semibold text-gray-800 mb-3">Expenses</h2>
+        <div className="lg:col-span-2 space-y-3">
+          <div className="flex items-center justify-between px-1">
+            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+              <svg className="w-4 h-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+              </svg>
+              Expenses
+            </h2>
+            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">
+              {filtered.length} {filtered.length === 1 ? 'item' : 'items'}
+            </span>
+          </div>
+
           <ExpenseList items={filtered} />
         </div>
       </div>

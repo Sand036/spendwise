@@ -42,3 +42,4 @@ yarn-error.log*
 next-env.d.ts
 
 PE_Prompt_Template.docx
+.agent/
