@@ -58,7 +58,7 @@ export default function HomePage() {
 
         <Card>
           <CardHeader>
-            <CardTitle className="text-lg">See where mony goes</CardTitle>
+            <CardTitle className="text-lg">See where money goes</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-gray-600 text-sm">

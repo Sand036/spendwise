@@ -31,7 +31,7 @@ export default function Header() {
               </span>
               <Link
                 href="/expenses"
-                data-testid="link-expense"
+                data-testid="link-expenses"
                 className="text-sm font-medium text-blue-600 hover:underline px-2"
               >
                 Expenses

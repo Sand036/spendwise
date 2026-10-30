@@ -67,7 +67,7 @@ export default function RegisterForm() {
     }
 
     // Đăng ký thành công
-    setSuccess('Regisration successfull')
+    setSuccess('Registration successful')
   }
 
   return (

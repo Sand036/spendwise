@@ -22,7 +22,7 @@ export function validateLoginPassword(value: string): string {
 
 export function validateConfirm(value: string, password: string): string {
   if (!value) return 'Confirm password is required'
-  if (value !== password) return 'Passwords is not match'
+  if (value !== password) return 'Passwords do not match'
   return ''
 }
 
@@ -51,7 +51,7 @@ export function validateExpense(values: ExpenseValues): ExpenseErrors {
   } else {
     const num = Number(values.amount)
     if (isNaN(num) || num <= 0) {
-      errors.amount = 'Please enter a valid email address'
+      errors.amount = 'Amount must be greater than 0'
     }
   }
 
