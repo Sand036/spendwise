@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { ExpenseProvider } from "@/contexts/ExpenseContext";
 import Header from "@/components/Header";
 import "./globals.css";
 
@@ -17,10 +18,12 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen bg-gray-50 font-sans antialiased">
         <AuthProvider>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
+          <ExpenseProvider>
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+          </ExpenseProvider>
         </AuthProvider>
       </body>
     </html>
