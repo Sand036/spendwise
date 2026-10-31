@@ -126,7 +126,7 @@ export default function ExpenseForm() {
           onChange={e => handleChange('category', e.target.value)}
           className="flex h-10 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-sm font-medium text-slate-900 shadow-2xs focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all cursor-pointer"
         >
-          <option value="">-- Select category --</option>
+          <option value="">Choose category</option>
           {CATEGORIES.map(cat => (
             <option key={cat} value={cat}>{cat}</option>
           ))}
@@ -151,7 +151,6 @@ export default function ExpenseForm() {
           data-testid="input-date"
           type="date"
           value={values.date}
-          max={todayLocal()}
           onChange={e => handleChange('date', e.target.value)}
           className="h-10 rounded-xl border-slate-200 bg-slate-50/50 px-3.5 text-sm text-slate-900 focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all cursor-pointer"
         />
